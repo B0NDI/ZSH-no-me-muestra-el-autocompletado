@@ -1,0 +1,2 @@
+# ZSH-no-me-muestra-el-autocompletado
+Siguiendo el video de tito s4vitar, nose como pero me cargue el .zshrc, y me quedo en unas lines de comando por defecto, estuve asi por horas reinstalando el p10k etc. Hasta que revise el archivo .zsh del pana s4vitar en le minuto 1:44:24 de su configuracion de entorno y me percate de que mi archivo era diferente, asi que me lo copie a mano y me lo actualice y funcionò. Espero que les funcione tambien, aqui esta mi archivo igual al suyo.
