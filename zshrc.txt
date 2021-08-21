@@ -1,0 +1,47 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+#Prompt
+PROMPT="%F{red}┌[%f%F{cyan}%m%f%F{red}]─[%f%F{yellow}%D{%H:%M-%d/%m}%f%F{red}]─[%f%F{magenta}%d%f%F{red}]%f"$'\n'"%F{red}└%f%F{green}$USER%f%F{yellow}$%f"
+
+# Export PATH$
+export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:$PATH
+
+#alias
+alias ls='ls -lh --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep--color=auto'
+alias egrep='egrep --color=auto'
+##############################################
+# Auto completion / suggestion
+# Mixing zsh-autocomplete and zsh-autosuggestions 
+# Requires: zsh-autocomplete {custom packagings by parrot team}
+# Jobs: suggest files / foldername /history bellow the prompt
+# Requires: zsh-autosuggestions (packaging by Debian team)
+# Jobs: Fish-like suggestions for command history
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# Select all suggestions instead of top on result only
+zstyle ':autocomplete:tab:*' insert-unambiguous yes
+zstyle 'autocomplete:tab:*' widget-style menu-select
+zstyle 'autocomplete:*' min-input 2
+bindkey $key[Up] up-line-or-history
+bindkey $key[Down] down-line-or-history
+
+################################################
+# Fish like syntax highlighting
+# Requires "zsh-syntac-highlighting" from apt
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Save type history for completion and easier life
+HISTFILE=~/.ZSH_HISTORY
+HISTFILE=10000
+SAVEHIST=10000
+setopt appendhistory
